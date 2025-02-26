@@ -1,0 +1,123 @@
+; Demo script 7
+;
+; Specify boundaries of coordinate space:
+world	1100000W	1020000W	303000N	383000N
+
+GIS Program
+
+dbFile:     db.txt
+script:     DemoScript07.txt
+log:        DemoLog07.txt
+Start time: Wed Apr 12 22:26:14 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              138600
+   -396000                -367200
+              109800
+--------------------------------------------------------------------------------
+;
+; Import a sizeable number of records;
+;   This may take some time... allow at least a few minutes for the
+;   student's solution to complete this one.
+Command 1:  import	NM_All.txt
+
+Imported Features by name: 57294
+Longest probe sequence:    2577
+Imported Locations:        54760
+--------------------------------------------------------------------------------
+;
+; Uncomment if you REALLY want to take a look at the indices:
+;debug	quad
+;debug	hash
+;
+; Perform some name/state searches:
+Command 2:  what_is	Nester Draw	NM
+
+ 3223319:  Catron  (108d 2m 42s West, 33d 58m 21s North)
+ 7307571:  Catron  (108d 2m 14s West, 34d 8m 34s North)
+--------------------------------------------------------------------------------
+Command 3:  what_is	Screaming Left Hand Turn	NM
+
+ 5292685:  Taos  (106d 40m 25s West, 36d 21m 3s North)
+--------------------------------------------------------------------------------
+Command 4:  what_is	Window Rock	NM
+
+ 1540986:  Colfax  (105d 3m 26s West, 36d 29m 15s North)
+ 7494524:  Rio Arriba  (106d 13m 8s West, 36d 7m 35s North)
+--------------------------------------------------------------------------------
+Command 5:  what_is	Buena Vista	NM
+
+ 1926658:  Mora  (105d 14m 57s West, 35d 54m 49s North)
+ 2536289:  Taos  (105d 36m 14s West, 36d 47m 2s North)
+ 2536412:  Rio Arriba  (106d 20m 19s West, 36d 12m 10s North)
+ 4343707:  Socorro  (107d 7m 23s West, 33d 54m 15s North)
+ 6223412:  Socorro  (Unknown, Unknown)
+--------------------------------------------------------------------------------
+;
+; Now do some location searches:
+Command 6:  what_is_at	363957N	1054049W
+
+   The following features were found at (105d 40m 49s West, 36d 39m 57s North):
+ 3075038:  Little Arsenic Springs Campground  Taos  NM
+--------------------------------------------------------------------------------
+Command 7:  what_is_at	351018N	1034328W
+
+   The following features were found at (103d 43m 28s West, 35d 10m 18s North):
+ 6816828:  Douglas Post Office (historical)  Quay  NM
+--------------------------------------------------------------------------------
+Command 8:  what_is_at	362846N	1085222W
+
+   The following features were found at (108d 52m 22s West, 36d 28m 46s North):
+ 1647644:  Tse-clani-to Wash  San Juan  NM
+--------------------------------------------------------------------------------
+Command 9:  what_is_at	334236N	1055604W
+
+   The following features were found at (105d 56m 4s West, 33d 42m 36s North):
+ 5850047:  The Malpais  Lincoln  NM
+--------------------------------------------------------------------------------
+;
+; And some region searches:
+Command 10:  what_is_in	362846N	1085220W	120	120
+
+   The following 6 features were found in (108d 52m 20s West +/- 120, 36d 28m 46s North +/- 120)
+ 4767087: 12M-39 Spring  NM  (108d 51m 47s West, 36d 28m 51s North)
+ 5522050: 12T-338 Water Well  NM  (108d 50m 23s West, 36d 29m 0s North)
+ 5548243: 12T-570 Water Well  NM  (108d 54m 6s West, 36d 27m 49s North)
+ 7433131: Sanostee Chapter  NM  (108d 50m 43s West, 36d 26m 52s North)
+ 5547423: T26R19s5 Water Well  NM  (108d 53m 0s West, 36d 30m 43s North)
+ 1647644: Tse-clani-to Wash  NM  (108d 52m 22s West, 36d 28m 46s North)
+--------------------------------------------------------------------------------
+Command 11:  what_is_in	333859N	1062731W	120	120
+
+   The following 5 features were found in (106d 27m 31s West +/- 120, 33d 38m 59s North +/- 120)
+  877168: McDonald Ranch  NM  (106d 27m 33s West, 33d 38m 59s North)
+ 4667171: Millars Watch Site  NM  (106d 26m 11s West, 33d 40m 0s North)
+ 1304537: Smith Tank  NM  (106d 25m 45s West, 33d 37m 11s North)
+ 2340478: Trinity Site  NM  (106d 28m 31s West, 33d 40m 38s North)
+ 6194759: Trinity Site Historical Marker  NM  (106d 28m 31s West, 33d 40m 38s North)
+--------------------------------------------------------------------------------
+Command 12:  what_is_in	345326N	1073457W	60	60
+
+   The following 10 features were found in (107d 34m 57s West +/- 60, 34d 53m 26s North +/- 60)
+ 5814803: Acoma Community Library Resource Center  NM  (107d 35m 13s West, 34d 53m 55s North)
+ 5840929: Acoma Museum  NM  (107d 34m 54s West, 34d 53m 47s North)
+ 5732122: Acoma Pueblo  NM  (107d 34m 54s West, 34d 53m 47s North)
+ 1804194: Acoma Rock  NM  (107d 34m 59s West, 34d 53m 26s North)
+   50335: Acoma Village  NM  (107d 35m 13s West, 34d 53m 55s North)
+ 6192762: Cebolleta Historical Marker  NM  (107d 34m 54s West, 34d 53m 47s North)
+ 1808361: Dinosaur Rock  NM  (107d 35m 20s West, 34d 53m 53s North)
+ 6117561: Pueblo of Acoma Historical Marker  NM  (107d 34m 54s West, 34d 53m 47s North)
+ 6525183: San Estevan de Acoma Mission Church Historic Site  NM  (107d 34m 52s West, 34d 53m 47s North)
+ 5295364: Sky City Community  NM  (107d 34m 54s West, 34d 53m 47s North)
+--------------------------------------------------------------------------------
+;
+; Exit:
+Command 13:  quit	
+
+Terminating execution of commands.
+End time: Wed Apr 12 22:27:08 EDT 2017
+--------------------------------------------------------------------------------

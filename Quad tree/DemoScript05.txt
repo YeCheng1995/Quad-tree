@@ -1,0 +1,30 @@
+; Demo script 5
+;
+; Specify boundaries of coordinate space:
+world	1090000W	1050000W	370000N	410000N
+;
+; Import a sizeable number of records:
+import	CO_Ouray.txt
+;
+; Take a look at the indices, if you like:
+;debug	quad
+;debug	hash
+;
+; Perform a couple of no-match searches by name/state:
+what_is	Not There Summit	CO
+what_is	Sniffles Creek	CO
+;
+; Perform a couple of no-match searches by location:
+what_is_at	390000N	1070000W
+what_is_at	370000N	1090000W
+;
+; Perform a few no-match region searches:
+what_is_in	390000N	1070000W	15	15
+what_is_in	405900N	1085900W	30	120
+what_is_in	-long	405900N	1085900W	30	120
+;
+; And, try with filtering:
+what_is_in	-filter	water	405900N	1085900W	30	120
+;
+; Exit:
+quit	

@@ -1,0 +1,97 @@
+; Demo script 3
+;
+; Test of multiple import commands with a couple of tiny DB files.
+;
+; Specify boundaries of coordinate space:
+world	0800400W	0792100W	375230N	383530N
+
+GIS Program
+
+dbFile:     db.txt
+script:     DemoScript03.txt
+log:        DemoLog03.txt
+Start time: Wed Apr 12 22:30:30 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              138930
+   -288240                -285660
+              136350
+--------------------------------------------------------------------------------
+;
+; Import a smallish DB file:
+Command 1:  import	VA_Highland.txt
+
+Imported Features by name: 289
+Longest probe sequence:    110
+Imported Locations:        289
+--------------------------------------------------------------------------------
+;
+; Check the location and name/state indices:
+;debug	quad
+;debug	hash
+;
+; Import another smallish DB file:
+Command 2:  import	VA_Bath.txt
+
+Imported Features by name: 520
+Longest probe sequence:    307
+Imported Locations:        520
+--------------------------------------------------------------------------------
+;
+; Check the location and name/state indices:
+;debug	quad
+;debug	hash
+;
+; Try a couple of region searches:
+Command 3:  what_is_in	381257N	0794039W	120	60
+
+   The following 8 features were found in (79d 40m 39s West +/- 60, 38d 12m 57s North +/- 120)
+   99041: Bolar  VA  (79d 40m 35s West, 38d 13m 2s North)
+   48096: Bolar Gap  VA  (79d 40m 53s West, 38d 13m 8s North)
+  106798: Bolar Methodist Church (historical)  VA  (79d 40m 39s West, 38d 12m 57s North)
+    3166: Bolar Spring  VA  (79d 40m 25s West, 38d 12m 59s North)
+   69439: Little Valley  VA  (79d 40m 40s West, 38d 13m 3s North)
+   69589: Little Valley Run  VA  (79d 40m 40s West, 38d 13m 3s North)
+  108854: Set Free Christian Fellowship Church  VA  (79d 40m 39s West, 38d 12m 57s North)
+   99417: White Rock Mountain  VA  (79d 39m 39s West, 38d 11m 26s North)
+--------------------------------------------------------------------------------
+Command 4:  what_is_in	381621N	0794457W	1200	30
+
+   The following 25 features were found in (79d 44m 57s West +/- 30, 38d 16m 21s North +/- 1200)
+   42530: Barney Run  VA  (79d 45m 0s West, 38d 1m 45s North)
+  106422: Bath Alum Camp (historical)  VA  (79d 44m 35s West, 38d 2m 49s North)
+   48501: Bonner Mountain  VA  (79d 45m 1s West, 38d 5m 0s North)
+    3456: Bridge Hollow  VA  (79d 45m 23s West, 38d 15m 57s North)
+   39100: Buckeye (historical)  VA  (79d 44m 52s West, 38d 17m 5s North)
+   52797: Cave Run  VA  (79d 44m 55s West, 38d 10m 4s North)
+   57779: Doyle Cemetery  VA  (79d 45m 20s West, 38d 14m 36s North)
+    8201: Dry Run  VA  (79d 44m 56s West, 38d 16m 34s North)
+   40040: Eowyns Run  VA  (79d 44m 57s West, 38d 16m 21s North)
+    8661: Erwin Draft  VA  (79d 44m 29s West, 38d 17m 27s North)
+   60625: Gillam Run  VA  (79d 45m 18s West, 37d 57m 35s North)
+  104386: Jordan Top  VA  (79d 45m 2s West, 38d 3m 2s North)
+   13557: Kent Simmons Hollow  VA  (79d 45m 26s West, 38d 15m 46s North)
+   16650: Lower Gap  VA  (79d 45m 3s West, 38d 15m 45s North)
+   75672: Muddy Run Spring  VA  (79d 45m 3s West, 38d 6m 23s North)
+   76676: Oak Grove Church  VA  (79d 45m 16s West, 37d 57m 36s North)
+   85326: Piney Mountain Trail  VA  (79d 45m 1s West, 38d 5m 16s North)
+   81302: Rocky Ridge  VA  (79d 44m 56s West, 38d 9m 8s North)
+   81419: Rocky Run  VA  (79d 44m 32s West, 38d 10m 28s North)
+   87573: South Piney Mountain Trail  VA  (79d 44m 29s West, 38d 3m 40s North)
+   40855: Stouts Creek  VA  (79d 45m 0s West, 37d 59m 15s North)
+   27420: Townsend Draft  VA  (79d 44m 47s West, 38d 17m 10s North)
+   92586: Warm Springs Mountain Trail  VA  (79d 44m 42s West, 38d 5m 13s North)
+   39235: Warwick Run  VA  (79d 44m 47s West, 38d 17m 10s North)
+  105775: White Rocks  VA  (79d 45m 13s West, 38d 5m 6s North)
+--------------------------------------------------------------------------------
+;
+; Exit
+Command 5:  quit	
+
+Terminating execution of commands.
+End time: Wed Apr 12 22:30:31 EDT 2017
+--------------------------------------------------------------------------------

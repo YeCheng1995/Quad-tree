@@ -1,0 +1,80 @@
+; Demo script 5
+;
+; Specify boundaries of coordinate space:
+world	1090000W	1050000W	370000N	410000N
+
+GIS Program
+
+dbFile:     db.txt
+script:     DemoScript05.txt
+log:        DemoLog05.txt
+Start time: Thu Apr 13 19:11:22 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              147600
+   -392400                -378000
+              133200
+--------------------------------------------------------------------------------
+;
+; Import a sizeable number of records:
+Command 1:  import	CO_Ouray.txt
+
+Imported Features by name: 567
+Longest probe sequence:    154
+Imported Locations:        567
+--------------------------------------------------------------------------------
+;
+; Take a look at the indices, if you like:
+;debug	quad
+;debug	hash
+;
+; Perform a couple of no-match searches by name/state:
+Command 2:  what_is	Not There Summit	CO
+
+No records match Not There Summit and CO
+--------------------------------------------------------------------------------
+Command 3:  what_is	Sniffles Creek	CO
+
+No records match Sniffles Creek and CO
+--------------------------------------------------------------------------------
+;
+; Perform a couple of no-match searches by location:
+Command 4:  what_is_at	390000N	1070000W
+
+   Nothing was found at (107d 0m 0s West, 39d 0m 0s North)
+--------------------------------------------------------------------------------
+Command 5:  what_is_at	370000N	1090000W
+
+   Nothing was found at (109d 0m 0s West, 37d 0m 0s North)
+--------------------------------------------------------------------------------
+;
+; Perform a few no-match region searches:
+Command 6:  what_is_in	390000N	1070000W	15	15
+
+   Nothing was found in (107d 0m 0s West +/- 15, 39d 0m 0s North +/- 15)
+--------------------------------------------------------------------------------
+Command 7:  what_is_in	405900N	1085900W	30	120
+
+   Nothing was found in (108d 59m 0s West +/- 120, 40d 59m 0s North +/- 30)
+--------------------------------------------------------------------------------
+Command 8:  what_is_in	-long	405900N	1085900W	30	120
+
+   Nothing was found in (108d 59m 0s West +/- 120, 40d 59m 0s North +/- 30)
+--------------------------------------------------------------------------------
+;
+; And, try with filtering:
+Command 9:  what_is_in	-filter	water	405900N	1085900W	30	120
+
+   Nothing was found in (108d 59m 0s West +/- 120, 40d 59m 0s North +/- 30)
+--------------------------------------------------------------------------------
+;
+; Exit:
+Command 10:  quit	
+
+Terminating execution of commands.
+End time: Thu Apr 13 19:11:23 EDT 2017
+--------------------------------------------------------------------------------

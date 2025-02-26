@@ -1,0 +1,515 @@
+GeoDataBase File: db.txt
+Command Script: script01.txt
+Log File: log3.txt
+
+; Script 1
+;
+; Testing using a small dataset
+;
+; Specify boundaries of coordinate space:
+;
+Command 0: world	0794530W	0792630W	381000N	383000N	
+
+World boundaries are set to:
+           383000N              
+0794530W                    0792630W
+           381000N              
+
+Time elapsed: 0.000020s
+-----------------------------------------------------------------
+;
+; Import the dataset [the address here is a relative address]
+Command 1: import	./VA_Monterey.txt	
+
+Imported 25 records from ./VA_Monterey.txt
+Longest Probe: 0
+Imported Locations: 25
+
+Time elapsed: 0.001646s
+-----------------------------------------------------------------
+;
+; Lets visualize our already imported geographical data [this is an optional command]
+Command 2: debug	world	
+
+Time elapsed: 0.000000s
+-----------------------------------------------------------------
+;
+; Also lets see what is inside name and coordinate indices
+Command 3: debug	quad	
+
+Bounds: Node(Center - {(-79.4417,38.5),[]}, Width - 0.633331, Height - 0.666664)
+Points: []
+
+	Bounds: Node(Center - {(-79.6,38.6667),[]}, Width - 0.316666, Height - 0.333332)
+	Points: [{(-79.5498,38.5001),[241]}]
+
+	Bounds: Node(Center - {(-79.2833,38.6667),[]}, Width - 0.316666, Height - 0.333332)
+	Points: []
+
+	Bounds: Node(Center - {(-79.6,38.3333),[]}, Width - 0.316666, Height - 0.333332)
+	Points: []
+
+		Bounds: Node(Center - {(-79.6792,38.4167),[]}, Width - 0.158333, Height - 0.166666)
+		Points: []
+
+		Bounds: Node(Center - {(-79.5208,38.4167),[]}, Width - 0.158333, Height - 0.166666)
+		Points: []
+
+			Bounds: Node(Center - {(-79.5604,38.4583),[]}, Width - 0.0791664, Height - 0.083333)
+			Points: []
+
+				Bounds: Node(Center - {(-79.5802,38.4792),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: [{(-79.5634,38.4929),[1608]}]
+
+				Bounds: Node(Center - {(-79.5406,38.4792),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: []
+
+					Bounds: Node(Center - {(-79.5505,38.4896),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: [{(-79.5509,38.4993),[368]}, {(-79.5564,38.4982),[817]}, {(-79.5528,38.4982),[1211]}, {(-79.5439,38.4976),[1736]}]
+
+					Bounds: Node(Center - {(-79.5307,38.4896),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: [{(-79.5395,38.4982),[506]}, {(-79.5314,38.4935),[939]}, {(-79.5275,38.4807),[1362]}]
+
+					Bounds: Node(Center - {(-79.5505,38.4688),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: []
+
+					Bounds: Node(Center - {(-79.5307,38.4688),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: [{(-79.5323,38.4701),[2187]}]
+
+				Bounds: Node(Center - {(-79.5802,38.4375),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: [{(-79.5692,38.4193),[664]}]
+
+				Bounds: Node(Center - {(-79.5406,38.4375),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: []
+
+					Bounds: Node(Center - {(-79.5505,38.4479),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: []
+
+					Bounds: Node(Center - {(-79.5307,38.4479),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: []
+
+						Bounds: Node(Center - {(-79.5357,38.4531),[]}, Width - 0.0098958, Height - 0.0104166)
+						Points: [{(-79.5331,38.4571),[1885]}, {(-79.5359,38.4485),[2558]}, {(-79.5345,38.4482),[2993]}, {(-79.5337,38.4551),[3303]}]
+
+						Bounds: Node(Center - {(-79.5258,38.4531),[]}, Width - 0.0098958, Height - 0.0104166)
+						Points: [{(-79.5281,38.4512),[2865]}]
+
+						Bounds: Node(Center - {(-79.5357,38.4427),[]}, Width - 0.0098958, Height - 0.0104166)
+						Points: []
+
+						Bounds: Node(Center - {(-79.5258,38.4427),[]}, Width - 0.0098958, Height - 0.0104166)
+						Points: []
+
+					Bounds: Node(Center - {(-79.5505,38.4271),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: [{(-79.5534,38.4354),[0]}, {(-79.5425,38.4312),[2437]}, {(-79.5537,38.4362),[3152]}]
+
+					Bounds: Node(Center - {(-79.5307,38.4271),[]}, Width - 0.0197916, Height - 0.0208333)
+					Points: [{(-79.5403,38.4201),[2315]}]
+
+			Bounds: Node(Center - {(-79.4812,38.4583),[]}, Width - 0.0791664, Height - 0.083333)
+			Points: []
+
+				Bounds: Node(Center - {(-79.501,38.4792),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: [{(-79.5087,38.4823),[1088]}, {(-79.5175,38.4946),[1486]}, {(-79.5192,38.4685),[2037]}, {(-79.5087,38.4823),[2711]}]
+
+				Bounds: Node(Center - {(-79.4615,38.4792),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: []
+
+				Bounds: Node(Center - {(-79.501,38.4375),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: [{(-79.5037,38.4173),[121]}]
+
+				Bounds: Node(Center - {(-79.4615,38.4375),[]}, Width - 0.0395832, Height - 0.0416665)
+				Points: []
+
+			Bounds: Node(Center - {(-79.5604,38.375),[]}, Width - 0.0791664, Height - 0.083333)
+			Points: []
+
+			Bounds: Node(Center - {(-79.4812,38.375),[]}, Width - 0.0791664, Height - 0.083333)
+			Points: []
+
+		Bounds: Node(Center - {(-79.6792,38.25),[]}, Width - 0.158333, Height - 0.166666)
+		Points: []
+
+		Bounds: Node(Center - {(-79.5208,38.25),[]}, Width - 0.158333, Height - 0.166666)
+		Points: []
+
+	Bounds: Node(Center - {(-79.2833,38.3333),[]}, Width - 0.316666, Height - 0.333332)
+	Points: []
+
+
+Time elapsed: 0.000389s
+-----------------------------------------------------------------
+Command 4: debug	hash	
+
+Hash Map:
+	Size: 25, Capacity: 1024
+	6 : {Seybert Chapel|VA,[2315]}
+	84 : {Thorny Bottom Church|VA,[2865]}
+	174 : {Gulf Mountain|VA,[1486]}
+	190 : {Blue Grass|VA,[241]}
+	193 : {Ginseng Mountain|VA,[1362]}
+	196 : {Blue Grass School (historical)|VA,[368]}
+	334 : {White Run|VA,[3152]}
+	369 : {New Hampden|VA,[1608]}
+	372 : {Strait Creek|VA,[2711]}
+	388 : {Burners Run|VA,[664]}
+	392 : {West Strait Creek|VA,[2993]}
+	478 : {Wooden Run|VA,[3303]}
+	514 : {Laurel Run|VA,[1885]}
+	524 : {Peck Run|VA,[2037]}
+	560 : {Simmons Run|VA,[2558]}
+	595 : {Forks of Waters|VA,[1088]}
+	606 : {Key Run|VA,[1736]}
+	629 : {Elk Run|VA,[939]}
+	632 : {Bluegrass Valley|VA,[506]}
+	803 : {Central Church|VA,[817]}
+	827 : {Seybert Hills|VA,[2437]}
+	985 : {Barren Rock|VA,[121]}
+	993 : {Possum Trot|VA,[2187]}
+	994 : {Frank Run|VA,[1211]}
+	1009 : {Asbury Church|VA,[0]}
+
+Time elapsed: 0.000040s
+-----------------------------------------------------------------
+;
+; To fill out the cache, let's do a single-match location search
+Command 5: what_is_at	382812N	0793156W	
+
+Results: 0
+
+Time elapsed: 0.000024s
+-----------------------------------------------------------------
+;
+; Now lets see if our cache is filled up
+Command 6: debug	pool	
+
+Buffer Pool:
+MRU
+LRU
+
+Time elapsed: 0.000005s
+-----------------------------------------------------------------
+;
+; A few more search queries
+Command 7: what_is	Church	VA	
+
+Time elapsed: 0.000097s
+-----------------------------------------------------------------
+; oops Church is "FEATURE_CLASS" how about the following query?
+Command 8: what_is	Central Church	VA	
+
+Results: 1
+817 Highland 382953N|0793323W
+
+Time elapsed: 0.000057s
+-----------------------------------------------------------------
+Command 9: what_is	Town of Monterey	VA	
+
+Time elapsed: 0.000006s
+-----------------------------------------------------------------
+Command 10: what_is	Smith Field	VA	
+
+Time elapsed: 0.000007s
+-----------------------------------------------------------------
+; Let's try a wrong state abbreviation
+Command 11: what_is	Smith Field	CO	
+
+Time elapsed: 0.000005s
+-----------------------------------------------------------------
+;
+; Lets check the buffer pool again
+Command 12: debug	pool	
+
+Buffer Pool:
+MRU
+1: {timestamp:1618121585,offset:817,feature_id:1482434,name_index:Central Church|VA}
+LRU
+
+Time elapsed: 0.000012s
+-----------------------------------------------------------------
+;
+; So lets check the LRU mechanism [this query should move the last element of the cache all the way to the front!]
+Command 13: what_is_at	382812N	0793156W	
+
+Results: 0
+
+Time elapsed: 0.000011s
+-----------------------------------------------------------------
+;
+; checking the buffer pool again
+Command 14: debug	pool	
+
+Buffer Pool:
+MRU
+1: {timestamp:1618121585,offset:817,feature_id:1482434,name_index:Central Church|VA}
+LRU
+
+Time elapsed: 0.000010s
+-----------------------------------------------------------------
+;
+; More location searches
+Command 15: what_is_at	381816N	0793700W	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+Command 16: what_is_at	381816N	0793708W	
+
+Results: 0
+
+Time elapsed: 0.000008s
+-----------------------------------------------------------------
+Command 17: what_is_at	381612N	0793256W	
+
+Results: 0
+
+Time elapsed: 0.000008s
+-----------------------------------------------------------------
+Command 18: what_is_at	382951N	0793238W	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+; We expect two location matches for this one
+;
+Command 19: what_is_at	382856N	0793031W	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+; Now performing some area search [this should return 7 features]
+;
+Command 20: what_is_in	382812N	0793156W	60	90	
+
+Results: 7
+1088 Forks of Waters VA 382856N|0793031W
+1362 Ginseng Mountain VA 382850N|0793139W
+1885 Laurel Run VA 382725N|0793159W
+2037 Peck Run VA 382806N|0793109W
+2187 Possum Trot VA 382812N|0793156W
+2711 Strait Creek VA 382856N|0793031W
+3303 Wooden Run VA 382718N|0793201W
+
+Time elapsed: 0.000294s
+-----------------------------------------------------------------
+; checking the buffer pool again
+; how about querying somewhere outside boundaries ?
+Command 21: what_is_in	382012N	0792330W	60	90	
+
+Results: 0
+
+Time elapsed: 0.000011s
+-----------------------------------------------------------------
+; Let's try some variations of a single-match region search with a square region:
+Command 22: what_is_in	382148N	0793109W	15	15	
+
+Results: 0
+
+Time elapsed: 0.000010s
+-----------------------------------------------------------------
+Command 23: what_is_in	-long	382148N	0793109W	15	15	
+
+Results: 0
+
+Time elapsed: 0.000010s
+-----------------------------------------------------------------
+; Let's try increasing the size of the region:
+Command 24: what_is_in	382148N	0793109W	60	60	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+Command 25: what_is_in	382148N	0793109W	120	120	
+
+Results: 0
+
+Time elapsed: 0.000010s
+-----------------------------------------------------------------
+Command 26: what_is_in	382148N	0793109W	180	180	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+Command 27: what_is_in	-long	382148N	0793109W	180	180	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+Command 28: what_is_in	-filter	structure	382600N	0793310W	120	120	
+
+Results: 3
+0 Asbury Church VA 382607N|0793312W
+2315 Seybert Chapel VA 382512N|0793225W
+2865 Thorny Bottom Church VA 382704N|0793141W
+
+Time elapsed: 0.000341s
+-----------------------------------------------------------------
+Command 29: what_is_in	-filter	water	382850N	0793030W	120	240	
+
+Results: 9
+939 Elk Run VA 382936N|0793153W
+1211 Frank Run VA 382953N|0793310W
+1736 Key Run VA 382951N|0793238W
+1885 Laurel Run VA 382725N|0793159W
+2037 Peck Run VA 382806N|0793109W
+2558 Simmons Run VA 382654N|0793209W
+2711 Strait Creek VA 382856N|0793031W
+2993 West Strait Creek VA 382653N|0793204W
+3303 Wooden Run VA 382718N|0793201W
+
+Time elapsed: 0.000759s
+-----------------------------------------------------------------
+Command 30: what_is_in	-filter	pop	382000N	0793530W	3600	3600	
+
+Results: 3
+241 Blue Grass VA 383000N|0793259W
+1608 New Hampden VA 382934N|0793348W
+2187 Possum Trot VA 382812N|0793156W
+
+Time elapsed: 0.000922s
+-----------------------------------------------------------------
+;
+Command 31: debug	pool	
+
+Buffer Pool:
+MRU
+1: {timestamp:1618121585,offset:3303,feature_id:1488473,name_index:Wooden Run|VA}
+2: {timestamp:1618121585,offset:3152,feature_id:1488320,name_index:White Run|VA}
+3: {timestamp:1618121585,offset:2993,feature_id:1488259,name_index:West Strait Creek|VA}
+4: {timestamp:1618121585,offset:2865,feature_id:1487894,name_index:Thorny Bottom Church|VA}
+5: {timestamp:1618121585,offset:2711,feature_id:1487661,name_index:Strait Creek|VA}
+6: {timestamp:1618121585,offset:2558,feature_id:1487250,name_index:Simmons Run|VA}
+7: {timestamp:1618121585,offset:2437,feature_id:1496194,name_index:Seybert Hills|VA}
+8: {timestamp:1618121585,offset:2315,feature_id:1487013,name_index:Seybert Chapel|VA}
+9: {timestamp:1618121585,offset:2187,feature_id:1496110,name_index:Possum Trot|VA}
+10: {timestamp:1618121585,offset:2037,feature_id:1486118,name_index:Peck Run|VA}
+11: {timestamp:1618121585,offset:1885,feature_id:1484722,name_index:Laurel Run|VA}
+12: {timestamp:1618121585,offset:1736,feature_id:1484574,name_index:Key Run|VA}
+13: {timestamp:1618121585,offset:1608,feature_id:1496000,name_index:New Hampden|VA}
+14: {timestamp:1618121585,offset:1486,feature_id:1483860,name_index:Gulf Mountain|VA}
+15: {timestamp:1618121585,offset:1362,feature_id:1483647,name_index:Ginseng Mountain|VA}
+LRU
+
+Time elapsed: 0.000071s
+-----------------------------------------------------------------
+; Let's import a larger dataset [wait a second, VA_Bath has 520 records, why didn't all of them get imported? explain this in your report]
+Command 32: import	./VA_Bath.txt	
+
+Imported 520 records from ./VA_Bath.txt
+Longest Probe: 6
+Imported Locations: 520
+
+Time elapsed: 0.023605s
+-----------------------------------------------------------------
+; as import command bypasses the buffer pool, content of the buffer pool should remain intact
+Command 33: debug	pool	
+
+Buffer Pool:
+MRU
+1: {timestamp:1618121585,offset:3303,feature_id:1488473,name_index:Wooden Run|VA}
+2: {timestamp:1618121585,offset:3152,feature_id:1488320,name_index:White Run|VA}
+3: {timestamp:1618121585,offset:2993,feature_id:1488259,name_index:West Strait Creek|VA}
+4: {timestamp:1618121585,offset:2865,feature_id:1487894,name_index:Thorny Bottom Church|VA}
+5: {timestamp:1618121585,offset:2711,feature_id:1487661,name_index:Strait Creek|VA}
+6: {timestamp:1618121585,offset:2558,feature_id:1487250,name_index:Simmons Run|VA}
+7: {timestamp:1618121585,offset:2437,feature_id:1496194,name_index:Seybert Hills|VA}
+8: {timestamp:1618121585,offset:2315,feature_id:1487013,name_index:Seybert Chapel|VA}
+9: {timestamp:1618121585,offset:2187,feature_id:1496110,name_index:Possum Trot|VA}
+10: {timestamp:1618121585,offset:2037,feature_id:1486118,name_index:Peck Run|VA}
+11: {timestamp:1618121585,offset:1885,feature_id:1484722,name_index:Laurel Run|VA}
+12: {timestamp:1618121585,offset:1736,feature_id:1484574,name_index:Key Run|VA}
+13: {timestamp:1618121585,offset:1608,feature_id:1496000,name_index:New Hampden|VA}
+14: {timestamp:1618121585,offset:1486,feature_id:1483860,name_index:Gulf Mountain|VA}
+15: {timestamp:1618121585,offset:1362,feature_id:1483647,name_index:Ginseng Mountain|VA}
+LRU
+
+Time elapsed: 0.000059s
+-----------------------------------------------------------------
+;
+; Exiting
+Command 34: quit	
+
+;
+; From this point on all of the commands will be ignored, you can use the following large dataset to test your implemented software
+; To consider this file please use the following world command at the beginning of this file
+; world	1130000W	0690000W	300000N	440000N
+Command 35: import	CO_All.txt	
+
+Imported 0 records from CO_All.txt
+Longest Probe: 6
+Imported Locations: 0
+
+Time elapsed: 0.000027s
+-----------------------------------------------------------------
+;
+; And some searches; let's see if you're taking the state abbreviation into account:
+Command 36: what_is	Lincoln	CO	
+
+Time elapsed: 0.000016s
+-----------------------------------------------------------------
+Command 37: what_is	Lincoln	NM	
+
+Time elapsed: 0.000005s
+-----------------------------------------------------------------
+;
+; Let's try spanning the border:
+Command 38: what_is_in	365800N	1043030W	720	45	
+
+Results: 0
+
+Time elapsed: 0.000015s
+-----------------------------------------------------------------
+;
+; Let's try a larger region and filter the results:
+Command 39: what_is_in	-filter	water	370000N	1040000W	600	600	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+Command 40: what_is_in	-filter	pop	370000N	1040000W	600	600	
+
+Results: 0
+
+Time elapsed: 0.000009s
+-----------------------------------------------------------------
+Command 41: what_is_in	-filter	structure	370000N	1040000W	600	600	
+
+Results: 0
+
+Time elapsed: 0.000010s
+-----------------------------------------------------------------
+;
+; And some more or less random searches:
+Command 42: what_is	Slab Mill Gulch	CO	
+
+Time elapsed: 0.000006s
+-----------------------------------------------------------------
+Command 43: what_is	Kemper School	CO	
+
+Time elapsed: 0.000006s
+-----------------------------------------------------------------
+Command 44: what_is_at	380806N	1073426W	
+
+Results: 0
+
+Time elapsed: 0.000008s
+-----------------------------------------------------------------
+Command 45: what_is_at	371010N	1043002W	
+
+Results: 0
+
+Time elapsed: 0.000007s
+-----------------------------------------------------------------
+Command 46: what_is_at	402906N	1064954W	
+
+Results: 0
+
+Time elapsed: 0.000007s
+-----------------------------------------------------------------

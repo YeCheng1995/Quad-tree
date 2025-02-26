@@ -1,0 +1,99 @@
+; Demo Script 1
+;
+; Specify boundaries of coordinate space:
+world	0794130W	0792630W	381500N	383000N
+
+GIS Program
+
+dbFile:     db.txt
+script:     DemoScript01.txt
+log:        DemoLog01.txt
+Start time: Wed Apr 12 22:30:19 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              138600
+   -286890                -285990
+              137700
+--------------------------------------------------------------------------------
+;
+; Import some data:
+Command 1:  import	VA_Monterey.txt
+
+Imported Features by name: 25
+Longest probe sequence:    12
+Imported Locations:        25
+--------------------------------------------------------------------------------
+;
+; Check the location indices:
+Command 2:  debug	quad
+
+   *
+   *
+@
+      [(-286392, 138367), 265] [(-286345, 138312), 2608] [(-286353, 138352), 2731] [(-286393, 138370), 3456] 
+      [(-286213, 138302), 387] 
+   @
+      *
+         [(-286329, 138414), 2852] 
+            [(-286301, 138424), 3165] [(-286324, 138413), 3294] 
+            *
+         @
+            [(-286269, 138486), 2326] 
+            [(-286319, 138445), 2171] [(-286321, 138438), 3607] 
+      @
+            [(-286299, 138530), 1644] [(-286316, 138492), 2479] 
+            [(-286231, 138536), 1366, 3008] 
+         @
+            [(-286263, 138580), 1767] 
+            [(-286313, 138576), 1214] 
+            *
+            *
+         @
+            [(-286379, 138600), 508] [(-286383, 138597), 636] [(-286342, 138593), 775] [(-286358, 138591), 2019] 
+            [(-286403, 138593), 1091] [(-286390, 138593), 1490] [(-286428, 138574), 1890] 
+   [(-286449, 138309), 935] 
+--------------------------------------------------------------------------------
+Command 3:  debug	hash
+
+Format of display is
+Slot number: data record
+Current table size is 1024
+Number of elements in table is 25
+
+      33:  [Asbury Church:VA, [265]]
+      65:  [Gulf Mountain:VA, [1767]]
+     225:  [Bluegrass Valley:VA, [775]]
+     305:  [Forks of Waters:VA, [1366]]
+     306:  [Ginseng Mountain:VA, [1644]]
+     308:  [Seybert Hills:VA, [2731]]
+     657:  [Central Church:VA, [1091]]
+     658:  [Seybert Chapel:VA, [2608]]
+     753:  [Blue Grass School (historical):VA, [636]]
+     754:  [West Strait Creek:VA, [3294]]
+     817:  [Thorny Bottom Church:VA, [3165]]
+     929:  [Barren Rock:VA, [387]]
+     930:  [Blue Grass:VA, [508]]
+     932:  [Burners Run:VA, [935]]
+     935:  [Elk Run:VA, [1214]]
+     939:  [Frank Run:VA, [1490]]
+     944:  [New Hampden:VA, [1890]]
+     950:  [Key Run:VA, [2019]]
+     957:  [Laurel Run:VA, [2171]]
+     965:  [Peck Run:VA, [2326]]
+     974:  [Possum Trot:VA, [2479]]
+     984:  [Simmons Run:VA, [2852]]
+     995:  [White Run:VA, [3456]]
+    1007:  [Wooden Run:VA, [3607]]
+    1009:  [Strait Creek:VA, [3008]]
+--------------------------------------------------------------------------------
+;
+; Exit
+Command 4:  quit	
+
+Terminating execution of commands.
+End time: Wed Apr 12 22:30:19 EDT 2017
+--------------------------------------------------------------------------------

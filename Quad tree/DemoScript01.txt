@@ -1,0 +1,14 @@
+; Demo Script 1
+;
+; Specify boundaries of coordinate space:
+world	0794130W	0792630W	381500N	383000N
+;
+; Import some data:
+import	VA_Monterey.txt
+;
+; Check the location indices:
+debug	quad
+debug	hash
+;
+; Exit
+quit	

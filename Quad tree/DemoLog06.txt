@@ -1,0 +1,348 @@
+; Demo script 6
+;
+; Specify boundaries of coordinate space:
+world	1090000W	1050000W	370000N	410000N
+
+GIS Program
+
+dbFile:     db.txt
+script:     DemoScript06.txt
+log:        DemoLog06.txt
+Start time: Thu Apr 13 19:08:45 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              147600
+   -392400                -378000
+              133200
+--------------------------------------------------------------------------------
+;
+; Import a sizeable number of records:
+Command 1:  import	CO_Ouray.txt
+
+Imported Features by name: 567
+Longest probe sequence:    154
+Imported Locations:        567
+--------------------------------------------------------------------------------
+;
+; Take a look at the indices, if you like:
+;debug	quad
+;debug	hash
+;
+; Perform some square-region searches; each searches a
+; larger region centered at the same point:
+Command 2:  what_is_in	380108N	1074035W	15	15
+
+   The following 7 features were found in (107d 40m 35s West +/- 15, 38d 1m 8s North +/- 15)
+   40184: Box Canyon  CO  (107d 40m 44s West, 38d 1m 6s North)
+   10709: Canyon Creek  CO  (107d 40m 33s West, 38d 1m 10s North)
+   45366: Oak Creek  CO  (107d 40m 33s West, 38d 1m 11s North)
+   71713: Ouray Hot Springs  CO  (107d 40m 21s West, 38d 1m 16s North)
+   40330: Portland Creek  CO  (107d 40m 29s West, 38d 1m 15s North)
+   13590: Uncompahgre Gorge  CO  (107d 40m 35s West, 38d 1m 8s North)
+   70976: Whippoorwill Mine  CO  (107d 40m 31s West, 38d 1m 22s North)
+--------------------------------------------------------------------------------
+Command 3:  what_is_in	380108N	1074035W	30	30
+
+   The following 15 features were found in (107d 40m 35s West +/- 30, 38d 1m 8s North +/- 30)
+   40184: Box Canyon  CO  (107d 40m 44s West, 38d 1m 6s North)
+   10709: Canyon Creek  CO  (107d 40m 33s West, 38d 1m 10s North)
+   45515: Cascade Creek  CO  (107d 40m 25s West, 38d 1m 38s North)
+   74171: City of Ouray  CO  (107d 40m 24s West, 38d 1m 38s North)
+   56752: KURA-FM (Ouray)  CO  (107d 40m 14s West, 38d 1m 22s North)
+   45783: Mineral Farm  CO  (107d 40m 38s West, 38d 0m 43s North)
+   70036: Mineral Farm Mine  CO  (107d 40m 38s West, 38d 0m 42s North)
+   45366: Oak Creek  CO  (107d 40m 33s West, 38d 1m 11s North)
+   57123: Ouray  CO  (107d 40m 17s West, 38d 1m 22s North)
+   71713: Ouray Hot Springs  CO  (107d 40m 21s West, 38d 1m 16s North)
+   74676: Ouray Volunteer Fire Department  CO  (107d 40m 16s West, 38d 1m 23s North)
+   40330: Portland Creek  CO  (107d 40m 29s West, 38d 1m 15s North)
+   70617: Prince Lode Claims Mine  CO  (107d 40m 18s West, 38d 0m 53s North)
+   13590: Uncompahgre Gorge  CO  (107d 40m 35s West, 38d 1m 8s North)
+   70976: Whippoorwill Mine  CO  (107d 40m 31s West, 38d 1m 22s North)
+--------------------------------------------------------------------------------
+Command 4:  what_is_in	380108N	1074035W	60	60
+
+   The following 24 features were found in (107d 40m 35s West +/- 60, 38d 1m 8s North +/- 60)
+   52039: Amphitheater Campground  CO  (107d 39m 44s West, 38d 1m 21s North)
+   45204: Angel Creek  CO  (107d 41m 25s West, 38d 0m 29s North)
+   40184: Box Canyon  CO  (107d 40m 44s West, 38d 1m 6s North)
+   10709: Canyon Creek  CO  (107d 40m 33s West, 38d 1m 10s North)
+   45515: Cascade Creek  CO  (107d 40m 25s West, 38d 1m 38s North)
+   40485: Cascade Falls  CO  (107d 39m 52s West, 38d 1m 34s North)
+   74171: City of Ouray  CO  (107d 40m 24s West, 38d 1m 38s North)
+   56752: KURA-FM (Ouray)  CO  (107d 40m 14s West, 38d 1m 22s North)
+   45783: Mineral Farm  CO  (107d 40m 38s West, 38d 0m 43s North)
+   70036: Mineral Farm Mine  CO  (107d 40m 38s West, 38d 0m 42s North)
+   45366: Oak Creek  CO  (107d 40m 33s West, 38d 1m 11s North)
+   57123: Ouray  CO  (107d 40m 17s West, 38d 1m 22s North)
+   71713: Ouray Hot Springs  CO  (107d 40m 21s West, 38d 1m 16s North)
+   74676: Ouray Volunteer Fire Department  CO  (107d 40m 16s West, 38d 1m 23s North)
+   40330: Portland Creek  CO  (107d 40m 29s West, 38d 1m 15s North)
+   70617: Prince Lode Claims Mine  CO  (107d 40m 18s West, 38d 0m 53s North)
+   39239: Radium Springs Swimming Pool  CO  (107d 40m 19s West, 38d 1m 45s North)
+   39488: Rock of the Ages Mine  CO  (107d 41m 0s West, 38d 1m 56s North)
+   52166: Rock of the Ages Mine  CO  (107d 41m 0s West, 38d 1m 55s North)
+   39842: Sister Peak  CO  (107d 41m 18s West, 38d 1m 42s North)
+   41199: Skyrocket Creek  CO  (107d 40m 28s West, 38d 1m 49s North)
+   39611: Speedwell Mine  CO  (107d 41m 12s West, 38d 1m 48s North)
+   13590: Uncompahgre Gorge  CO  (107d 40m 35s West, 38d 1m 8s North)
+   70976: Whippoorwill Mine  CO  (107d 40m 31s West, 38d 1m 22s North)
+--------------------------------------------------------------------------------
+Command 5:  what_is_in	380108N	1074035W	240	240
+
+   The following 139 features were found in (107d 40m 35s West +/- 240, 38d 1m 8s North +/- 240)
+   15034: Abrams Mountain  CO  (107d 38m 26s West, 37d 57m 44s North)
+   44068: Almadi Mine  CO  (107d 39m 15s West, 38d 3m 36s North)
+   40071: Alpine Mine  CO  (107d 42m 35s West, 38d 0m 21s North)
+   68988: Amador Mine  CO  (107d 39m 22s West, 38d 3m 17s North)
+   42834: American Lead and Zinc Mill  CO  (107d 41m 11s West, 38d 3m 18s North)
+   42486: American Nettie Mine  CO  (107d 40m 21s West, 38d 2m 46s North)
+   69102: American-Nettie Mine  CO  (107d 40m 21s West, 38d 2m 45s North)
+   52039: Amphitheater Campground  CO  (107d 39m 44s West, 38d 1m 21s North)
+   45204: Angel Creek  CO  (107d 41m 25s West, 38d 0m 29s North)
+   43953: Bachelor Mine  CO  (107d 39m 41s West, 38d 3m 38s North)
+    3802: Bankers Tunnel  CO  (107d 43m 7s West, 37d 57m 26s North)
+   59453: Barhoff Mine  CO  (107d 40m 36s West, 37d 59m 28s North)
+   10151: Bear Creek  CO  (107d 39m 39s West, 37d 59m 57s North)
+   13343: Bear Creek Falls  CO  (107d 39m 37s West, 38d 0m 0s North)
+   13095: Bear Creek Trail  CO  (107d 37m 22s West, 37d 59m 53s North)
+   59700: Belle of the West Mine  CO  (107d 40m 25s West, 37d 59m 28s North)
+   59828: Bi-metallist Mine  CO  (107d 44m 11s West, 37d 58m 50s North)
+    3681: Bimettalist Mine  CO  (107d 44m 11s West, 37d 58m 50s North)
+   43549: Black Lake  CO  (107d 42m 12s West, 38d 4m 22s North)
+   69225: Boston Sunday Mine  CO  (107d 37m 32s West, 38d 3m 42s North)
+   40184: Box Canyon  CO  (107d 40m 44s West, 38d 1m 6s North)
+   41754: Bridalveil Creek  CO  (107d 40m 42s West, 38d 2m 13s North)
+   51918: Bridge of Heaven  CO  (107d 37m 57s West, 38d 2m 6s North)
+   10862: Camp Bird  CO  (107d 43m 35s West, 37d 58m 22s North)
+   10986: Camp Bird Number 14 Level  CO  (107d 43m 34s West, 37d 58m 13s North)
+   10709: Canyon Creek  CO  (107d 40m 33s West, 38d 1m 10s North)
+   45515: Cascade Creek  CO  (107d 40m 25s West, 38d 1m 38s North)
+   40485: Cascade Falls  CO  (107d 39m 52s West, 38d 1m 34s North)
+   40964: Cascade Mountain  CO  (107d 38m 33s West, 38d 2m 26s North)
+   40611: Chief Ouray Mine  CO  (107d 39m 27s West, 38d 1m 50s North)
+   69347: Chipeta Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   74171: City of Ouray  CO  (107d 40m 24s West, 38d 1m 38s North)
+   13905: Climax Creek  CO  (107d 38m 51s West, 37d 59m 12s North)
+   41479: Corbett Creek  CO  (107d 41m 33s West, 38d 3m 33s North)
+   14773: Crystal Lake  CO  (107d 39m 52s West, 37d 57m 31s North)
+   14182: Curran Gulch  CO  (107d 39m 27s West, 37d 58m 17s North)
+   44296: Cutler Creek  CO  (107d 42m 21s West, 38d 5m 6s North)
+   39958: Cutler Mine  CO  (107d 41m 15s West, 38d 0m 1s North)
+   69462: Dad Town Mine  CO  (107d 41m 25s West, 38d 3m 14s North)
+   44720: Dalpaz Ranch  CO  (107d 42m 42s West, 38d 5m 0s North)
+   43800: Dexter Creek  CO  (107d 41m 33s West, 38d 3m 36s North)
+   69577: Donald Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   60924: Dunmore Mine  CO  (107d 39m 28s West, 37d 58m 53s North)
+   14331: East Riverside Slide  CO  (107d 39m 28s West, 37d 58m 13s North)
+   69691: El Mahdi Mine  CO  (107d 39m 15s West, 38d 3m 35s North)
+   39371: Elkhorn Ranch  CO  (107d 40m 40s West, 38d 2m 15s North)
+   43317: Erickson Ranch  CO  (107d 42m 24s West, 38d 3m 40s North)
+   61409: Excelsior Mine  CO  (107d 40m 36s West, 37d 59m 28s North)
+   12109: Fall Creek  CO  (107d 42m 29s West, 37d 59m 4s North)
+   52925: Full Moon Dam  CO  (107d 39m 56s West, 37d 57m 36s North)
+   69807: Granger Mine  CO  (107d 40m 5s West, 38d 4m 21s North)
+   13222: Grizzly Bear Mine  CO  (107d 38m 18s West, 37d 59m 53s North)
+   61781: Guadaloupe Mine  CO  (107d 38m 53s West, 37d 57m 31s North)
+   12383: Half Moon Basin  CO  (107d 40m 49s West, 37d 57m 43s North)
+   71476: Happy Jack Mine  CO  (107d 40m 52s West, 38d 4m 10s North)
+   62030: Hawkeye Mine  CO  (107d 44m 23s West, 37d 58m 42s North)
+   12261: Hayden Mountain  CO  (107d 42m 9s West, 37d 57m 16s North)
+   14494: Hendrick Gulch  CO  (107d 39m 38s West, 37d 57m 56s North)
+   62267: Homestake Mine  CO  (107d 38m 33s West, 37d 59m 31s North)
+   56378: Horsethief Trail  CO  (107d 37m 45s West, 38d 1m 45s North)
+   71594: Hummingbird Mine  CO  (107d 40m 4s West, 38d 3m 48s North)
+   11115: Imogene Creek  CO  (107d 43m 38s West, 37d 58m 18s North)
+   62512: Jackpot Mine  CO  (107d 38m 53s West, 37d 59m 30s North)
+   62629: Jay Eye See Mine  CO  (107d 38m 33s West, 37d 59m 31s North)
+   42371: Jonathan Mine  CO  (107d 40m 18s West, 38d 2m 39s North)
+   56752: KURA-FM (Ouray)  CO  (107d 40m 14s West, 38d 1m 22s North)
+   62994: Keno Mine  CO  (107d 39m 9s West, 37d 57m 20s North)
+   43195: Lake Lenore  CO  (107d 40m 57s West, 38d 3m 26s North)
+   11670: Lewis Creek  CO  (107d 41m 52s West, 37d 59m 50s North)
+   63720: Little Balm of Gilead Mine  CO  (107d 39m 14s West, 37d 58m 56s North)
+   42024: Little Gem Mine  CO  (107d 42m 22s West, 38d 3m 15s North)
+   14651: Lucky Twenty Mine  CO  (107d 39m 10s West, 37d 57m 37s North)
+   63976: Maud S Mine  CO  (107d 39m 55s West, 37d 59m 29s North)
+   69921: Memphis Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   14060: Michael Breen Mine  CO  (107d 38m 6s West, 37d 58m 30s North)
+   17246: Mineral Creek  CO  (107d 37m 36s West, 37d 57m 54s North)
+   45783: Mineral Farm  CO  (107d 40m 38s West, 38d 0m 43s North)
+   70036: Mineral Farm Mine  CO  (107d 40m 38s West, 38d 0m 42s North)
+   64339: Monarch Mine  CO  (107d 38m 47s West, 37d 58m 42s North)
+   45667: Moonshine Park  CO  (107d 43m 34s West, 38d 3m 28s North)
+   12809: Mother Cline Slide  CO  (107d 39m 8s West, 37d 58m 58s North)
+   70156: Nasby Mine  CO  (107d 41m 25s West, 38d 3m 14s North)
+   70268: Neodesha Mine  CO  (107d 40m 29s West, 38d 3m 27s North)
+   70383: News Boy Mine  CO  (107d 41m 1s West, 38d 4m 25s North)
+   45366: Oak Creek  CO  (107d 40m 33s West, 38d 1m 11s North)
+   44181: Old Maid Mine  CO  (107d 39m 7s West, 38d 3m 32s North)
+   57123: Ouray  CO  (107d 40m 17s West, 38d 1m 22s North)
+   71713: Ouray Hot Springs  CO  (107d 40m 21s West, 38d 1m 16s North)
+   74676: Ouray Volunteer Fire Department  CO  (107d 40m 16s West, 38d 1m 23s North)
+   70499: Park Placer Mine  CO  (107d 42m 30s West, 38d 4m 50s North)
+   11271: Pierson Basin  CO  (107d 44m 30s West, 37d 57m 43s North)
+   56870: Ponderosa Heliport  CO  (107d 42m 5s West, 38d 5m 4s North)
+   42965: Pony Express Mine  CO  (107d 40m 30s West, 38d 3m 23s North)
+   43669: Portland  CO  (107d 42m 5s West, 38d 4m 53s North)
+   40330: Portland Creek  CO  (107d 40m 29s West, 38d 1m 15s North)
+   40730: Portland Mine  CO  (107d 38m 34s West, 38d 1m 9s North)
+   70617: Prince Lode Claims Mine  CO  (107d 40m 18s West, 38d 0m 53s North)
+   39239: Radium Springs Swimming Pool  CO  (107d 40m 19s West, 38d 1m 45s North)
+   12503: Ralston Creek  CO  (107d 39m 41s West, 37d 59m 57s North)
+   13748: Red Mountain Creek  CO  (107d 39m 14s West, 37d 59m 17s North)
+    4161: Richmond Creek  CO  (107d 43m 28s West, 37d 57m 27s North)
+   39488: Rock of the Ages Mine  CO  (107d 41m 0s West, 38d 1m 56s North)
+   52166: Rock of the Ages Mine  CO  (107d 41m 0s West, 38d 1m 55s North)
+   42722: Rotary Park  CO  (107d 40m 52s West, 38d 2m 40s North)
+   14904: Saint Germain Foundation  CO  (107d 39m 39s West, 37d 57m 29s North)
+   66264: Saxon Mine  CO  (107d 40m 27s West, 37d 59m 28s North)
+   42255: Schofield Mine  CO  (107d 40m 19s West, 38d 2m 41s North)
+    3286: Senator Gulch  CO  (107d 42m 29s West, 37d 59m 2s North)
+   70743: Senorita Mine  CO  (107d 41m 4s West, 38d 4m 52s North)
+   41911: Sequin Mine  CO  (107d 42m 27s West, 38d 2m 47s North)
+   68109: Seven-thirty Mine  CO  (107d 37m 42s West, 38d 0m 2s North)
+   42608: Sieberg Mine  CO  (107d 40m 33s West, 38d 2m 44s North)
+   12658: Silver Gulch  CO  (107d 39m 23s West, 37d 58m 54s North)
+   41633: Silvershield Mill  CO  (107d 40m 59s West, 38d 2m 27s North)
+   39842: Sister Peak  CO  (107d 41m 18s West, 38d 1m 42s North)
+   41199: Skyrocket Creek  CO  (107d 40m 28s West, 38d 1m 49s North)
+    1759: Sneffels Creek  CO  (107d 43m 38s West, 37d 58m 18s North)
+   39611: Speedwell Mine  CO  (107d 41m 12s West, 38d 1m 48s North)
+   11519: Squaw Gulch  CO  (107d 41m 39s West, 38d 0m 4s North)
+   13474: Sutton Mill  CO  (107d 39m 31s West, 37d 59m 56s North)
+   43435: Syracuse Mine  CO  (107d 40m 41s West, 38d 3m 32s North)
+   40845: The Amphitheater  CO  (107d 38m 57s West, 38d 1m 17s North)
+   41085: The Blowout  CO  (107d 39m 42s West, 38d 2m 23s North)
+   11823: Thistledown  CO  (107d 41m 59s West, 37d 59m 37s North)
+   11949: Thistledown Creek  CO  (107d 41m 53s West, 37d 59m 47s North)
+   39727: Twin Peaks  CO  (107d 41m 57s West, 38d 1m 38s North)
+   13590: Uncompahgre Gorge  CO  (107d 40m 35s West, 38d 1m 8s North)
+   11390: United States Mountain  CO  (107d 44m 21s West, 37d 57m 24s North)
+   42141: Wanakah Mine  CO  (107d 40m 30s West, 38d 2m 31s North)
+   10557: Waterhole Slide  CO  (107d 43m 1s West, 37d 58m 42s North)
+   43084: Wedge Mine  CO  (107d 40m 2s West, 38d 3m 30s North)
+    3128: Weehawken Creek  CO  (107d 42m 0s West, 37d 59m 34s North)
+   55238: Weehawken Pack Trail  CO  (107d 42m 21s West, 37d 59m 52s North)
+   12932: West Riverside Slide  CO  (107d 39m 31s West, 37d 58m 14s North)
+   70859: West View Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   70976: Whippoorwill Mine  CO  (107d 40m 31s West, 38d 1m 22s North)
+   41355: Whitehouse Mountain  CO  (107d 44m 16s West, 38d 1m 14s North)
+   67734: Yellow Jacket Mine  CO  (107d 38m 33s West, 37d 59m 31s North)
+    3921: Yellow Rose Mine  CO  (107d 43m 24s West, 37d 57m 17s North)
+--------------------------------------------------------------------------------
+;
+; Now, perform some searches with non-square regions:
+Command 6:  what_is_in	380206N	1073757W	30	60
+
+   The following 3 features were found in (107d 37m 57s West +/- 60, 38d 2m 6s North +/- 30)
+   51918: Bridge of Heaven  CO  (107d 37m 57s West, 38d 2m 6s North)
+   40964: Cascade Mountain  CO  (107d 38m 33s West, 38d 2m 26s North)
+   56378: Horsethief Trail  CO  (107d 37m 45s West, 38d 1m 45s North)
+--------------------------------------------------------------------------------
+Command 7:  what_is_in	380206N	1073757W	240	15
+
+   The following 4 features were found in (107d 37m 57s West +/- 15, 38d 2m 6s North +/- 240)
+   51918: Bridge of Heaven  CO  (107d 37m 57s West, 38d 2m 6s North)
+   56378: Horsethief Trail  CO  (107d 37m 45s West, 38d 1m 45s North)
+   14060: Michael Breen Mine  CO  (107d 38m 6s West, 37d 58m 30s North)
+   68109: Seven-thirty Mine  CO  (107d 37m 42s West, 38d 0m 2s North)
+--------------------------------------------------------------------------------
+Command 8:  what_is_in	380206N	1073757W	60	600
+
+   The following 47 features were found in (107d 37m 57s West +/- 600, 38d 2m 6s North +/- 60)
+   42486: American Nettie Mine  CO  (107d 40m 21s West, 38d 2m 46s North)
+   69102: American-Nettie Mine  CO  (107d 40m 21s West, 38d 2m 45s North)
+   52039: Amphitheater Campground  CO  (107d 39m 44s West, 38d 1m 21s North)
+   46500: Bighorn Ridge  CO  (107d 35m 33s West, 38d 2m 27s North)
+   46028: Blackwall Mountain  CO  (107d 33m 53s West, 38d 1m 44s North)
+   40184: Box Canyon  CO  (107d 40m 44s West, 38d 1m 6s North)
+   41754: Bridalveil Creek  CO  (107d 40m 42s West, 38d 2m 13s North)
+   51918: Bridge of Heaven  CO  (107d 37m 57s West, 38d 2m 6s North)
+   10709: Canyon Creek  CO  (107d 40m 33s West, 38d 1m 10s North)
+   45515: Cascade Creek  CO  (107d 40m 25s West, 38d 1m 38s North)
+   40485: Cascade Falls  CO  (107d 39m 52s West, 38d 1m 34s North)
+   40964: Cascade Mountain  CO  (107d 38m 33s West, 38d 2m 26s North)
+   40611: Chief Ouray Mine  CO  (107d 39m 27s West, 38d 1m 50s North)
+   69347: Chipeta Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   74171: City of Ouray  CO  (107d 40m 24s West, 38d 1m 38s North)
+   69577: Donald Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   39371: Elkhorn Ranch  CO  (107d 40m 40s West, 38d 2m 15s North)
+   56378: Horsethief Trail  CO  (107d 37m 45s West, 38d 1m 45s North)
+   42371: Jonathan Mine  CO  (107d 40m 18s West, 38d 2m 39s North)
+   56752: KURA-FM (Ouray)  CO  (107d 40m 14s West, 38d 1m 22s North)
+   69921: Memphis Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   51209: Middle Canyon  CO  (107d 33m 39s West, 38d 2m 58s North)
+   45366: Oak Creek  CO  (107d 40m 33s West, 38d 1m 11s North)
+   57123: Ouray  CO  (107d 40m 17s West, 38d 1m 22s North)
+   71713: Ouray Hot Springs  CO  (107d 40m 21s West, 38d 1m 16s North)
+   74676: Ouray Volunteer Fire Department  CO  (107d 40m 16s West, 38d 1m 23s North)
+   40330: Portland Creek  CO  (107d 40m 29s West, 38d 1m 15s North)
+   40730: Portland Mine  CO  (107d 38m 34s West, 38d 1m 9s North)
+   39239: Radium Springs Swimming Pool  CO  (107d 40m 19s West, 38d 1m 45s North)
+   39488: Rock of the Ages Mine  CO  (107d 41m 0s West, 38d 1m 56s North)
+   52166: Rock of the Ages Mine  CO  (107d 41m 0s West, 38d 1m 55s North)
+   42722: Rotary Park  CO  (107d 40m 52s West, 38d 2m 40s North)
+   42255: Schofield Mine  CO  (107d 40m 19s West, 38d 2m 41s North)
+   41911: Sequin Mine  CO  (107d 42m 27s West, 38d 2m 47s North)
+   42608: Sieberg Mine  CO  (107d 40m 33s West, 38d 2m 44s North)
+   41633: Silvershield Mill  CO  (107d 40m 59s West, 38d 2m 27s North)
+   39842: Sister Peak  CO  (107d 41m 18s West, 38d 1m 42s North)
+   41199: Skyrocket Creek  CO  (107d 40m 28s West, 38d 1m 49s North)
+   39611: Speedwell Mine  CO  (107d 41m 12s West, 38d 1m 48s North)
+   40845: The Amphitheater  CO  (107d 38m 57s West, 38d 1m 17s North)
+   41085: The Blowout  CO  (107d 39m 42s West, 38d 2m 23s North)
+   39727: Twin Peaks  CO  (107d 41m 57s West, 38d 1m 38s North)
+   13590: Uncompahgre Gorge  CO  (107d 40m 35s West, 38d 1m 8s North)
+   42141: Wanakah Mine  CO  (107d 40m 30s West, 38d 2m 31s North)
+   70859: West View Mine  CO  (107d 40m 22s West, 38d 2m 43s North)
+   70976: Whippoorwill Mine  CO  (107d 40m 31s West, 38d 1m 22s North)
+   41355: Whitehouse Mountain  CO  (107d 44m 16s West, 38d 1m 14s North)
+--------------------------------------------------------------------------------
+;
+; Now, try filtering
+Command 9:  what_is_in	-filter	structure	380206N	1073757W	60	600
+
+The following features matching your criteria were found in (107d 37m 57s West +/- 600, 38d 2m 6s North +/- 60)
+
+   42608: Bridge of Heaven  CO  (107d 37m 57s West, 38d 2m 6s North)
+   52166: KURA-FM (Ouray)  CO  (107d 40m 14s West, 38d 1m 22s North)
+   39611: Ouray Volunteer Fire Department  CO  (107d 40m 16s West, 38d 1m 23s North)
+   40330: Rotary Park  CO  (107d 40m 52s West, 38d 2m 40s North)
+
+There were 4 features of type structure.
+--------------------------------------------------------------------------------
+Command 10:  what_is_in	-filter	water	380206N	1073757W	60	600
+
+The following features matching your criteria were found in (107d 37m 57s West +/- 600, 38d 2m 6s North +/- 60)
+
+   42722: Bridalveil Creek  CO  (107d 40m 42s West, 38d 2m 13s North)
+   42255: Canyon Creek  CO  (107d 40m 33s West, 38d 1m 10s North)
+   42486: Cascade Creek  CO  (107d 40m 25s West, 38d 1m 38s North)
+   69102: Cascade Falls  CO  (107d 39m 52s West, 38d 1m 34s North)
+   40730: Oak Creek  CO  (107d 40m 33s West, 38d 1m 11s North)
+   56378: Ouray Hot Springs  CO  (107d 40m 21s West, 38d 1m 16s North)
+   39239: Portland Creek  CO  (107d 40m 29s West, 38d 1m 15s North)
+   40485: Skyrocket Creek  CO  (107d 40m 28s West, 38d 1m 49s North)
+
+There were 8 features of type water.
+--------------------------------------------------------------------------------
+Command 11:  what_is_in	-filter	pop	380206N	1073757W	60	600
+
+The following features matching your criteria were found in (107d 37m 57s West +/- 600, 38d 2m 6s North +/- 60)
+
+   40845: Ouray  CO  (107d 40m 17s West, 38d 1m 22s North)
+
+There were 1 features of type pop.
+--------------------------------------------------------------------------------
+;
+; Exit:
+Command 12:  quit	
+
+Terminating execution of commands.
+End time: Thu Apr 13 19:08:46 EDT 2017
+--------------------------------------------------------------------------------

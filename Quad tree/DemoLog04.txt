@@ -1,0 +1,366 @@
+; Demo script 4
+;
+; Specify boundaries of coordinate space:
+world	1090000W	1050000W	370000N	410000N
+
+GIS Program
+
+dbFile:     db.txt
+script:     DemoScript04.txt
+log:        DemoLog04.txt
+Start time: Wed Apr 12 22:30:38 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              147600
+   -392400                -378000
+              133200
+--------------------------------------------------------------------------------
+;
+; Import a sizeable number of records:
+Command 1:  import	CO_Ouray.txt
+
+Imported Features by name: 567
+Longest probe sequence:    154
+Imported Locations:        567
+--------------------------------------------------------------------------------
+;
+; Take a look at the indices, if you like:
+;debug	quad
+;debug	hash
+;
+; Perform a few some single-match searches by name/state:
+Command 2:  what_is	United States Mountain	CO
+
+   11390:  Ouray  (107d 44m 21s West, 37d 57m 24s North)
+--------------------------------------------------------------------------------
+; 
+; Check the pool:
+Command 3:  debug	pool
+
+MRU
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+;
+Command 4:  what_is	The Blowout	CO
+
+   41085:  Ouray  (107d 39m 42s West, 38d 2m 23s North)
+--------------------------------------------------------------------------------
+Command 5:  what_is	Skyrocket Creek	CO
+
+   41199:  Ouray  (107d 40m 28s West, 38d 1m 49s North)
+--------------------------------------------------------------------------------
+Command 6:  what_is	Kerr-Ouray Number Two Mine	CO
+
+   63234:  Ouray  (107d 40m 39s West, 37d 55m 25s North)
+--------------------------------------------------------------------------------
+Command 7:  what_is	Telluride Peak	CO
+
+    5577:  Ouray  (107d 44m 8s West, 37d 55m 29s North)
+--------------------------------------------------------------------------------
+; 
+; Check the pool; there should be five records, matching
+; the preceding searches, with Telluride Peak at the MRU
+; position and US Mountain at the LRU position:
+Command 8:  debug	pool
+
+MRU
+    5577:  187216|Telluride Peak|Summit|CO|08|Ouray|091|375529N|1074408W|37.9247168|-107.7356168|||||4108|13478|Ironton|10/13/1978|
+   63234:  1734611|Kerr-Ouray Number Two Mine|Mine|CO|08|Ouray|091|375525N|1074039W|37.9236062|-107.6775606|||||3221|10567|Ironton|05/14/1997|
+   41199:  188616|Skyrocket Creek|Stream|CO|08|Ouray|091|380149N|1074028W|38.0302714|-107.6745043|380213N|1073910W|38.0369444|-107.6527778|2340|7677|Ouray|10/13/1978|
+   41085:  188615|The Blowout|Cliff|CO|08|Ouray|091|380223N|1073942W|38.0397158|-107.6617264|||||2899|9511|Ouray|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+;
+; Now, let's fill the pool:
+Command 9:  what_is	Thistledown	CO
+
+   11823:  Ouray  (107d 41m 59s West, 37d 59m 37s North)
+--------------------------------------------------------------------------------
+Command 10:  what_is	Difficulty Creek	CO
+
+   46333:  Ouray  (107d 35m 14s West, 38d 3m 54s North)
+--------------------------------------------------------------------------------
+Command 11:  what_is	Wildhorse Peak	CO
+
+   45899:  Ouray  (107d 34m 39s West, 38d 0m 48s North)
+--------------------------------------------------------------------------------
+Command 12:  what_is	Terrible Mine	CO
+
+   58122:  Ouray  (107d 46m 29s West, 37d 58m 15s North)
+--------------------------------------------------------------------------------
+Command 13:  what_is	Devils Armchair	CO
+
+   52554:  Chaffee  (106d 12m 42s West, 38d 25m 32s North)
+--------------------------------------------------------------------------------
+Command 14:  what_is	Middle Fork Spring Creek	CO
+
+    1337:  Ouray  (107d 59m 54s West, 38d 19m 49s North)
+--------------------------------------------------------------------------------
+Command 15:  what_is	Mount Emma	CO
+
+    2039:  Ouray  (107d 47m 25s West, 37d 58m 30s North)
+--------------------------------------------------------------------------------
+Command 16:  what_is	Weehawken Creek	CO
+
+    3128:  Ouray  (107d 42m 0s West, 37d 59m 34s North)
+--------------------------------------------------------------------------------
+Command 17:  what_is	Mother Cline Slide	CO
+
+   12809:  Ouray  (107d 39m 8s West, 37d 58m 58s North)
+--------------------------------------------------------------------------------
+Command 18:  what_is	Otonowanda Dam	CO
+
+   54499:  Ouray  (107d 46m 42s West, 38d 6m 44s North)
+--------------------------------------------------------------------------------
+;
+; The pool should now be full and the records should be exactly in
+; the order shown:
+Command 19:  debug	pool
+
+MRU
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+   58122:  1734503|Terrible Mine|Mine|CO|08|Ouray|091|375815N|1074629W|37.970827|-107.7747838|||||3659|12004|Telluride|05/14/1997|
+   45899:  188653|Wildhorse Peak|Summit|CO|08|Ouray|091|380048N|1073439W|38.0133281|-107.5775592|||||4037|13245|Wetterhorn Peak|10/13/1978|
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   11823:  187267|Thistledown|Populated Place|CO|08|Ouray|091|375937N|1074159W|37.9936051|-107.6997825|||||2661|8730|Ironton|10/13/1978|
+    5577:  187216|Telluride Peak|Summit|CO|08|Ouray|091|375529N|1074408W|37.9247168|-107.7356168|||||4108|13478|Ironton|10/13/1978|
+   63234:  1734611|Kerr-Ouray Number Two Mine|Mine|CO|08|Ouray|091|375525N|1074039W|37.9236062|-107.6775606|||||3221|10567|Ironton|05/14/1997|
+   41199:  188616|Skyrocket Creek|Stream|CO|08|Ouray|091|380149N|1074028W|38.0302714|-107.6745043|380213N|1073910W|38.0369444|-107.6527778|2340|7677|Ouray|10/13/1978|
+   41085:  188615|The Blowout|Cliff|CO|08|Ouray|091|380223N|1073942W|38.0397158|-107.6617264|||||2899|9511|Ouray|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+;
+; Let's hit the second record in the pool, and see if it
+; moves to the top:
+Command 20:  what_is	Mother Cline Slide	CO
+
+   12809:  Ouray  (107d 39m 8s West, 37d 58m 58s North)
+--------------------------------------------------------------------------------
+Command 21:  debug	pool
+
+MRU
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+   58122:  1734503|Terrible Mine|Mine|CO|08|Ouray|091|375815N|1074629W|37.970827|-107.7747838|||||3659|12004|Telluride|05/14/1997|
+   45899:  188653|Wildhorse Peak|Summit|CO|08|Ouray|091|380048N|1073439W|38.0133281|-107.5775592|||||4037|13245|Wetterhorn Peak|10/13/1978|
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   11823:  187267|Thistledown|Populated Place|CO|08|Ouray|091|375937N|1074159W|37.9936051|-107.6997825|||||2661|8730|Ironton|10/13/1978|
+    5577:  187216|Telluride Peak|Summit|CO|08|Ouray|091|375529N|1074408W|37.9247168|-107.7356168|||||4108|13478|Ironton|10/13/1978|
+   63234:  1734611|Kerr-Ouray Number Two Mine|Mine|CO|08|Ouray|091|375525N|1074039W|37.9236062|-107.6775606|||||3221|10567|Ironton|05/14/1997|
+   41199:  188616|Skyrocket Creek|Stream|CO|08|Ouray|091|380149N|1074028W|38.0302714|-107.6745043|380213N|1073910W|38.0369444|-107.6527778|2340|7677|Ouray|10/13/1978|
+   41085:  188615|The Blowout|Cliff|CO|08|Ouray|091|380223N|1073942W|38.0397158|-107.6617264|||||2899|9511|Ouray|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+;
+; Now let's hit a record in the middle of the pool, and see if it
+; moves to the top:
+Command 22:  what_is	Difficulty Creek	CO
+
+   46333:  Ouray  (107d 35m 14s West, 38d 3m 54s North)
+--------------------------------------------------------------------------------
+Command 23:  debug	pool
+
+MRU
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+   58122:  1734503|Terrible Mine|Mine|CO|08|Ouray|091|375815N|1074629W|37.970827|-107.7747838|||||3659|12004|Telluride|05/14/1997|
+   45899:  188653|Wildhorse Peak|Summit|CO|08|Ouray|091|380048N|1073439W|38.0133281|-107.5775592|||||4037|13245|Wetterhorn Peak|10/13/1978|
+   11823:  187267|Thistledown|Populated Place|CO|08|Ouray|091|375937N|1074159W|37.9936051|-107.6997825|||||2661|8730|Ironton|10/13/1978|
+    5577:  187216|Telluride Peak|Summit|CO|08|Ouray|091|375529N|1074408W|37.9247168|-107.7356168|||||4108|13478|Ironton|10/13/1978|
+   63234:  1734611|Kerr-Ouray Number Two Mine|Mine|CO|08|Ouray|091|375525N|1074039W|37.9236062|-107.6775606|||||3221|10567|Ironton|05/14/1997|
+   41199:  188616|Skyrocket Creek|Stream|CO|08|Ouray|091|380149N|1074028W|38.0302714|-107.6745043|380213N|1073910W|38.0369444|-107.6527778|2340|7677|Ouray|10/13/1978|
+   41085:  188615|The Blowout|Cliff|CO|08|Ouray|091|380223N|1073942W|38.0397158|-107.6617264|||||2899|9511|Ouray|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+;
+; Now let's hit the record at the end of the pool, and see if it
+; moves to the top:
+Command 24:  what_is	United States Mountain	CO
+
+   11390:  Ouray  (107d 44m 21s West, 37d 57m 24s North)
+--------------------------------------------------------------------------------
+Command 25:  debug	pool
+
+MRU
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+   58122:  1734503|Terrible Mine|Mine|CO|08|Ouray|091|375815N|1074629W|37.970827|-107.7747838|||||3659|12004|Telluride|05/14/1997|
+   45899:  188653|Wildhorse Peak|Summit|CO|08|Ouray|091|380048N|1073439W|38.0133281|-107.5775592|||||4037|13245|Wetterhorn Peak|10/13/1978|
+   11823:  187267|Thistledown|Populated Place|CO|08|Ouray|091|375937N|1074159W|37.9936051|-107.6997825|||||2661|8730|Ironton|10/13/1978|
+    5577:  187216|Telluride Peak|Summit|CO|08|Ouray|091|375529N|1074408W|37.9247168|-107.7356168|||||4108|13478|Ironton|10/13/1978|
+   63234:  1734611|Kerr-Ouray Number Two Mine|Mine|CO|08|Ouray|091|375525N|1074039W|37.9236062|-107.6775606|||||3221|10567|Ironton|05/14/1997|
+   41199:  188616|Skyrocket Creek|Stream|CO|08|Ouray|091|380149N|1074028W|38.0302714|-107.6745043|380213N|1073910W|38.0369444|-107.6527778|2340|7677|Ouray|10/13/1978|
+   41085:  188615|The Blowout|Cliff|CO|08|Ouray|091|380223N|1073942W|38.0397158|-107.6617264|||||2899|9511|Ouray|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+; 
+; Now trigger a replacement by searching for a feature that's not
+; in the pool, and see if the pool is updated correctly, the old
+; last record should be gone and the new record should be at the
+; beginning:
+Command 26:  what_is	Blaine Draw	CO
+
+   37420:  Ouray  (107d 47m 55s West, 38d 5m 12s North)
+--------------------------------------------------------------------------------
+Command 27:  debug	pool
+
+MRU
+   37420:  188587|Blaine Draw|Valley|CO|08|Ouray|091|380512N|1074755W|38.0866584|-107.7986724|380328N|1074805W|38.0577778|-107.8013889|2493|8179|Mount Sneffels|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+   58122:  1734503|Terrible Mine|Mine|CO|08|Ouray|091|375815N|1074629W|37.970827|-107.7747838|||||3659|12004|Telluride|05/14/1997|
+   45899:  188653|Wildhorse Peak|Summit|CO|08|Ouray|091|380048N|1073439W|38.0133281|-107.5775592|||||4037|13245|Wetterhorn Peak|10/13/1978|
+   11823:  187267|Thistledown|Populated Place|CO|08|Ouray|091|375937N|1074159W|37.9936051|-107.6997825|||||2661|8730|Ironton|10/13/1978|
+    5577:  187216|Telluride Peak|Summit|CO|08|Ouray|091|375529N|1074408W|37.9247168|-107.7356168|||||4108|13478|Ironton|10/13/1978|
+   63234:  1734611|Kerr-Ouray Number Two Mine|Mine|CO|08|Ouray|091|375525N|1074039W|37.9236062|-107.6775606|||||3221|10567|Ironton|05/14/1997|
+   41199:  188616|Skyrocket Creek|Stream|CO|08|Ouray|091|380149N|1074028W|38.0302714|-107.6745043|380213N|1073910W|38.0369444|-107.6527778|2340|7677|Ouray|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+;
+; Load two more new records:
+Command 28:  what_is	Bridalveil Creek	CO
+
+   41754:  Ouray  (107d 40m 42s West, 38d 2m 13s North)
+--------------------------------------------------------------------------------
+Command 29:  what_is	Pleasant Valley Canyon	CO
+
+   24580:  Ouray  (107d 51m 20s West, 38d 9m 16s North)
+--------------------------------------------------------------------------------
+Command 30:  debug	pool
+
+MRU
+   24580:  188394|Pleasant Valley Canyon|Valley|CO|08|Ouray|091|380916N|1075120W|38.1544348|-107.8556181|380845N|1075514W|38.1458237|-107.9206201|2278|7474|Ridgway|10/13/1978|
+   41754:  188620|Bridalveil Creek|Stream|CO|08|Ouray|091|380213N|1074042W|38.0369379|-107.6783932|380229N|1073834W|38.0413889|-107.6427778|2326|7631|Ouray|10/13/1978|
+   37420:  188587|Blaine Draw|Valley|CO|08|Ouray|091|380512N|1074755W|38.0866584|-107.7986724|380328N|1074805W|38.0577778|-107.8013889|2493|8179|Mount Sneffels|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+   58122:  1734503|Terrible Mine|Mine|CO|08|Ouray|091|375815N|1074629W|37.970827|-107.7747838|||||3659|12004|Telluride|05/14/1997|
+   45899:  188653|Wildhorse Peak|Summit|CO|08|Ouray|091|380048N|1073439W|38.0133281|-107.5775592|||||4037|13245|Wetterhorn Peak|10/13/1978|
+   11823:  187267|Thistledown|Populated Place|CO|08|Ouray|091|375937N|1074159W|37.9936051|-107.6997825|||||2661|8730|Ironton|10/13/1978|
+    5577:  187216|Telluride Peak|Summit|CO|08|Ouray|091|375529N|1074408W|37.9247168|-107.7356168|||||4108|13478|Ironton|10/13/1978|
+LRU
+--------------------------------------------------------------------------------
+;
+; And load a few more new records:
+Command 31:  what_is	Corkscrew Gulch	CO
+
+    8474:  Ouray  (107d 40m 49s West, 37d 55m 54s North)
+--------------------------------------------------------------------------------
+Command 32:  what_is	Galena Lion Gulch	CO
+
+    7418:  Ouray  (107d 41m 28s West, 37d 55m 37s North)
+--------------------------------------------------------------------------------
+Command 33:  what_is	Starvation Creek	CO
+
+   50488:  Saguache  (106d 10m 22s West, 38d 23m 55s North)
+--------------------------------------------------------------------------------
+Command 34:  what_is	Alkali Ditch Number 1	CO
+
+   30751:  Ouray  (107d 40m 4s West, 38d 10m 54s North)
+--------------------------------------------------------------------------------
+Command 35:  debug	pool
+
+MRU
+   30751:  188438|Alkali Ditch Number 1|Canal|CO|08|Ouray|091|381054N|1074004W|38.1816578|-107.667837|||||2269|7444|Dallas|10/13/1978|
+   50488:  189979|Starvation Creek|Stream|CO|08|Saguache|109|382355N|1061022W|38.3986097|-106.1727983|382205N|1061400W|38.3680546|-106.2333566|2768|9081|Mount Ouray|10/13/1978|
+    7418:  187231|Galena Lion Gulch|Valley|CO|08|Ouray|091|375537N|1074128W|37.9269393|-107.6911719|375605N|1074233W|37.9347222|-107.7091667|3059|10036|Ironton|10/13/1978|
+    8474:  187239|Corkscrew Gulch|Valley|CO|08|Ouray|091|375554N|1074049W|37.9316617|-107.6803383|375422N|1074022W|37.9061111|-107.6727778|2987|9800|Ironton|10/13/1978|
+   24580:  188394|Pleasant Valley Canyon|Valley|CO|08|Ouray|091|380916N|1075120W|38.1544348|-107.8556181|380845N|1075514W|38.1458237|-107.9206201|2278|7474|Ridgway|10/13/1978|
+   41754:  188620|Bridalveil Creek|Stream|CO|08|Ouray|091|380213N|1074042W|38.0369379|-107.6783932|380229N|1073834W|38.0413889|-107.6427778|2326|7631|Ouray|10/13/1978|
+   37420:  188587|Blaine Draw|Valley|CO|08|Ouray|091|380512N|1074755W|38.0866584|-107.7986724|380328N|1074805W|38.0577778|-107.8013889|2493|8179|Mount Sneffels|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+LRU
+--------------------------------------------------------------------------------
+;
+; And, finally, shuffle things with a few hits:
+Command 36:  what_is	Weehawken Creek	CO
+
+    3128:  Ouray  (107d 42m 0s West, 37d 59m 34s North)
+--------------------------------------------------------------------------------
+Command 37:  what_is	Bridalveil Creek	CO
+
+   41754:  Ouray  (107d 40m 42s West, 38d 2m 13s North)
+--------------------------------------------------------------------------------
+Command 38:  what_is	Weehawken Creek	CO
+
+    3128:  Ouray  (107d 42m 0s West, 37d 59m 34s North)
+--------------------------------------------------------------------------------
+Command 39:  what_is	Corkscrew Gulch	CO
+
+    8474:  Ouray  (107d 40m 49s West, 37d 55m 54s North)
+--------------------------------------------------------------------------------
+Command 40:  debug	pool
+
+MRU
+    8474:  187239|Corkscrew Gulch|Valley|CO|08|Ouray|091|375554N|1074049W|37.9316617|-107.6803383|375422N|1074022W|37.9061111|-107.6727778|2987|9800|Ironton|10/13/1978|
+    3128:  187196|Weehawken Creek|Stream|CO|08|Ouray|091|375934N|1074200W|37.9927718|-107.7000602|380008N|1074501W|38.0022156|-107.7503383|2664|8740|Ironton|10/13/1978|
+   41754:  188620|Bridalveil Creek|Stream|CO|08|Ouray|091|380213N|1074042W|38.0369379|-107.6783932|380229N|1073834W|38.0413889|-107.6427778|2326|7631|Ouray|10/13/1978|
+   30751:  188438|Alkali Ditch Number 1|Canal|CO|08|Ouray|091|381054N|1074004W|38.1816578|-107.667837|||||2269|7444|Dallas|10/13/1978|
+   50488:  189979|Starvation Creek|Stream|CO|08|Saguache|109|382355N|1061022W|38.3986097|-106.1727983|382205N|1061400W|38.3680546|-106.2333566|2768|9081|Mount Ouray|10/13/1978|
+    7418:  187231|Galena Lion Gulch|Valley|CO|08|Ouray|091|375537N|1074128W|37.9269393|-107.6911719|375605N|1074233W|37.9347222|-107.7091667|3059|10036|Ironton|10/13/1978|
+   24580:  188394|Pleasant Valley Canyon|Valley|CO|08|Ouray|091|380916N|1075120W|38.1544348|-107.8556181|380845N|1075514W|38.1458237|-107.9206201|2278|7474|Ridgway|10/13/1978|
+   37420:  188587|Blaine Draw|Valley|CO|08|Ouray|091|380512N|1074755W|38.0866584|-107.7986724|380328N|1074805W|38.0577778|-107.8013889|2493|8179|Mount Sneffels|10/13/1978|
+   11390:  187264|United States Mountain|Summit|CO|08|Ouray|091|375724N|1074421W|37.9566608|-107.7392276|||||3967|13015|Ironton|10/13/1978|
+   46333:  188658|Difficulty Creek|Stream|CO|08|Ouray|091|380354N|1073514W|38.0649939|-107.5872816|380049N|1073621W|38.0136111|-107.6058333|2700|8858|Wetterhorn Peak|10/13/1978|
+   12809:  187274|Mother Cline Slide|Cliff|CO|08|Ouray|091|375858N|1073908W|37.9827724|-107.6522822|||||2801|9190|Ironton|10/13/1978|
+   54499:  200908|Otonowanda Dam|Dam|CO|08|Ouray|091|380644N|1074642W|38.1122136|-107.7783938|||||2607|8553|Mount Sneffels|09/01/1994|
+    2039:  187100|Mount Emma|Summit|CO|08|Ouray|091|375830N|1074725W|37.9749936|-107.7903397|||||4138|13576|Telluride|10/13/1978|
+    1337:  185949|Middle Fork Spring Creek|Stream|CO|08|Ouray|091|381949N|1075954W|38.3302658|-107.9984002|381650N|1080458W|38.2805441|-108.0828489|2232|7323|Government Springs|10/13/1978|
+   52554:  197475|Devils Armchair|Basin|CO|08|Chaffee|015|382532N|1061242W|38.425554|-106.2116884|||||3625|11893|Mount Ouray|07/01/1992|
+LRU
+--------------------------------------------------------------------------------
+;
+; Exit:
+Command 41:  quit	
+
+Terminating execution of commands.
+End time: Wed Apr 12 22:30:39 EDT 2017
+--------------------------------------------------------------------------------
